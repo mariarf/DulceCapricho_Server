@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+    <title>Crear</title>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h1>Actualizar evento</h1>
+        <% @eventos.each do |eventos| %>
+        
+            <form method="POST" action="/eventos/editar/<%= eventos.id %>" accept-charset="UTF-8" role="form" id="actualizarevento" name="actualizarevento" enctype="multipart/form-data">
+        
+            <!-- Protección CSRF -->
+            <%= token_tag nil %> 
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <div class="form-group">
+                            <label for="nombre" class="negrita">Nombre:</label>
+                            <div>
+                                <input class="form-control" placeholder="Torta de Chocolate" name="nombre" type="text" id="nombre"  value="<%= eventos.nombre %>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion" class="negrita">Descripcion:</label>
+                            <div>
+                                <input class="form-control" placeholder="4.50" name="descripcion" type="text" id="descripcion" value="<%= eventos.descripcion %>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="img" class="negrita">Selecciona una imagen:</label>
+                            <div>
+                                <input class="form-control" type="file" name="img" id="img" required>
+                                <br>
+                                <br> Imagen Actual:
+                                <br>
+                                <br>
+                                <img src="/assets/img/<%= eventos.img %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
+
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-info">Guardar</button>
+                        <%= link_to 'Cancelar', url_for(:back), class: "btn btn-warning" %>
+
+                        <br>
+                        <br>
+
+
+                    </div>
+                </div>
+            </form>
+        
+        <% end %>
+    </div>
+<!-- Optional JavaScript; jQuery, Popper.js, and Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
