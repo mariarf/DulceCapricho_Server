@@ -17,6 +17,13 @@
     <div class="container">
         <br>
         <h1>Actualizar evento</h1>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/eventos/index">Inicio</a></li>
+                <li class="breadcrumb-item"  aria-current="page">Editar</a></li>
+            </ol>
+        </nav>
         <% @eventos.each do |eventos| %>
         
             <form method="POST" action="/eventos/editar/<%= eventos.id %>" accept-charset="UTF-8" role="form" id="actualizarevento" name="actualizarevento" enctype="multipart/form-data">

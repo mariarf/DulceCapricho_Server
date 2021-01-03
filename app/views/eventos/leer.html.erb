@@ -17,8 +17,12 @@
     <div class = "container">
         <br>
         <h1> Descripción de evento</h1>
-        <hr>
-
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/eventos/index">Inicio</a></li>
+                <li class="breadcrumb-item"  aria-current="page">Detalles</a></li>
+            </ol>
+        </nav>
         <% @eventos.each do |eventos| %>
             <section class="text-center">
                 <div class="container">

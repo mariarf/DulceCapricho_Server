@@ -17,7 +17,12 @@
     <div class = "container">
         <br>
         <h1>Lista de eventos</h1>
-        <br>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"aria-current="page">Inicio</a></li>
+            </ol>
+        </nav>
         <!-- Mensajes -->
         <% if flash[:notice] %>
             <div class="alert alert-success" role="alert" id="notice" class="notice">
@@ -29,8 +34,9 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
+                    <th>Descripción</th>
                     <th>Imagen</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +59,7 @@
                                 <!-- Protección CSRF -->
                                 <%= token_tag nil %> 
         
+                                <a href="/eventos/leer/<%= eventos.id %>" class="btn btn-dark">Detalles</a>
                                 <a href="/eventos/actualizar/<%= eventos.id %>" class="btn btn-primary">Editar</a>
         
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -60,11 +67,16 @@
                             </form>
         
                         </td>
+
+ 
+                </td>
                     </tr>
                     <% end %>
             </tbody>
         </table>
+        <a href="/eventos/crear" class="btn btn-primary">Añadir</a>
     </div>
+
 
     <!-- Optional JavaScript; jQuery, Popper.js, and Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
