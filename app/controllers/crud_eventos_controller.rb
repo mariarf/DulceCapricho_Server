@@ -120,12 +120,16 @@ class CrudEventosController < ApplicationController
     # Actualizamos un determinado registro en la base de datos
     if @eventos.update(parametros)
       
-      # Actualizamos la columna 'img' de la base de datos
-      if params[:img].present?
-        @eventos.update_column(:img, uploaded_file.original_filename)
-      else
-        #
-      end          
+      # Actualizamos las columnas 'img' de la base de datos
+      if params[:img1].present?
+        @eventos.update_column(:img1, Time.now.to_i.to_s + File.extname(params[:img1]))
+      end   
+      if params[:img2].present?
+        @eventos.update_column(:img2, Time.now.to_i.to_s + File.extname(params[:img2]))
+      end
+      if params[:img3].present?
+        @eventos.update_column(:img3, Time.now.to_i.to_s + File.extname(params[:img3]))
+      end       
  
     else
       render :edit

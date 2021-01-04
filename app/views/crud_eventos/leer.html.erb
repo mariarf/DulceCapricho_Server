@@ -3,12 +3,10 @@
 
 <head>
     <!-- Required meta tags -->
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
 
     <title>Crear</title>
 </head>
@@ -16,13 +14,15 @@
 <body>
     <div class = "container">
         <br>
-        <h1> Descripción de evento</h1>
+        <h1> Detalles del evento</h1>
+        <hr>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/eventos/index">Inicio</a></li>
                 <li class="breadcrumb-item"  aria-current="page">Detalles</a></li>
             </ol>
         </nav>
+        <hr>
         <% @eventos.each do |eventos| %>
             <section class="text-center">
                 <div class="container">
@@ -30,32 +30,29 @@
                 </div>
             </section>
         
-            <div class="album py-5 bg-light">
+            <div class="album py-2 bg-light">
                 <div class="container">
-        
-                    <div class="col-md-12" >
-    
-                        <strong>Descripción:</strong>
-                        <%= eventos.descripcion %>
-    
-                        <br><br>
-    
-                        <strong>Creado:</strong>
-                        <%= eventos.created_at.strftime("%d/%m/%Y") %>
-    
-                    </div>
                     <div class="row">
+                        <div class="col-md-6">
+                            <strong>Descripción:</strong>
+                            <%= eventos.descripcion %>
+                            <br><br>
+                            <strong>Última modificación:</strong>
+                            <%= eventos.created_at.strftime("%d/%m/%Y") %>
+                        </div>
         
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <img src="/assets/img/<%= eventos.img1 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
                         </div>
-                        <div class="col-md-5">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
                             <img src="/assets/img/<%= eventos.img2 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <img src="/assets/img/<%= eventos.img3 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
                         </div>
-        
         
                     </div>
                 </div>
