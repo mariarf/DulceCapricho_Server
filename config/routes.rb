@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #Vistas cliente
+  get 'index' => 'vistas_clientes#index'
+  get 'encargos' => 'vistas_clientes#encargos'
+  get 'eventos' => 'vistas_clientes#eventos'
+  get 'politica_y_condiciones' => 'vistas_clientes#politica y condiciones'
+  get 'contacto' => 'vistas_clientes#contacto'
+  
+  #Vistas servidor
   get 'eventos/index' => 'eventos#index' # Ruta de la vista principal de los registros 
   get 'eventos/leer/:id', to: 'eventos#leer' # Ruta de la vista leer o ver los detalles de un registro 
   get 'eventos/crear' => 'eventos#crear' # Ruta de la vista para crear un registro 
