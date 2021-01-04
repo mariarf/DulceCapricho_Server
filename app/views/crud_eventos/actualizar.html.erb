@@ -24,6 +24,7 @@
                 <li class="breadcrumb-item"  aria-current="page">Editar</a></li>
             </ol>
         </nav>
+        <hr>
         <% @eventos.each do |eventos| %>
         
             <form method="POST" action="/eventos/editar/<%= eventos.id %>" accept-charset="UTF-8" role="form" id="actualizarevento" name="actualizarevento" enctype="multipart/form-data">

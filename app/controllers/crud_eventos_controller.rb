@@ -26,19 +26,22 @@ class CrudEventosController < ApplicationController
     
     # Subimos el Archivo al servidor
     uploaded_file = params[:img1]
-    File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+    name1 = Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
+    File.open(Rails.root.join('public', 'assets/img', name1), 'wb') do |file|
         file.write(uploaded_file.read)
     end
 
     # Subimos el Archivo al servidor
     uploaded_file = params[:img2]
-    File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+    name2 = Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
+    File.open(Rails.root.join('public', 'assets/img', name2), 'wb') do |file|
         file.write(uploaded_file.read)
     end
 
     # Subimos el Archivo al servidor
     uploaded_file = params[:img3]
-    File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+    name3 = Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
+    File.open(Rails.root.join('public', 'assets/img', name3), 'wb') do |file|
         file.write(uploaded_file.read)
     end
   	
@@ -47,9 +50,9 @@ class CrudEventosController < ApplicationController
   	# Insertamos un registro en la base de datos
     if @eventos.save
       
-      @eventos.update_column(:img1, params[:img1].original_filename)
-      @eventos.update_column(:img2, params[:img2].original_filename)
-      @eventos.update_column(:img3, params[:img3].original_filename)
+      @eventos.update_column(:img1, name1)
+      @eventos.update_column(:img2, name2)
+      @eventos.update_column(:img3, name3)
   		
   	else
   		render :new
@@ -83,8 +86,9 @@ class CrudEventosController < ApplicationController
       imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
       File.delete(Rails.root + imgeliminar)
  
-      # Subimos el nuevo archivo (imagen) 
-      File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+      # Subimos el nuevo archivo (imagen)
+      name1 = Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
+      File.open(Rails.root.join('public', 'assets/img', name1), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end  
@@ -98,7 +102,8 @@ class CrudEventosController < ApplicationController
       File.delete(Rails.root + imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
-      File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+      name2 = Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
+      File.open(Rails.root.join('public', 'assets/img', name2), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end  
@@ -112,7 +117,8 @@ class CrudEventosController < ApplicationController
       File.delete(Rails.root + imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
-      File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+      name3 = Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
+      File.open(Rails.root.join('public', 'assets/img', name3), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end 
@@ -122,13 +128,13 @@ class CrudEventosController < ApplicationController
       
       # Actualizamos las columnas 'img' de la base de datos
       if params[:img1].present?
-        @eventos.update_column(:img1, Time.now.to_i.to_s + File.extname(params[:img1]))
+        @eventos.update_column(:img1, name1)
       end   
       if params[:img2].present?
-        @eventos.update_column(:img2, Time.now.to_i.to_s + File.extname(params[:img2]))
+        @eventos.update_column(:img2, name2)
       end
       if params[:img3].present?
-        @eventos.update_column(:img3, Time.now.to_i.to_s + File.extname(params[:img3]))
+        @eventos.update_column(:img3, name3)
       end       
  
     else
