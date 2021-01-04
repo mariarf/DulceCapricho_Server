@@ -25,7 +25,19 @@ class CrudEventosController < ApplicationController
   def insertar
     
     # Subimos el Archivo al servidor
-    uploaded_file = params[:img]
+    uploaded_file = params[:img1]
+    File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+        file.write(uploaded_file.read)
+    end
+
+    # Subimos el Archivo al servidor
+    uploaded_file = params[:img2]
+    File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+        file.write(uploaded_file.read)
+    end
+
+    # Subimos el Archivo al servidor
+    uploaded_file = params[:img3]
     File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
         file.write(uploaded_file.read)
     end
@@ -35,7 +47,9 @@ class CrudEventosController < ApplicationController
   	# Insertamos un registro en la base de datos
     if @eventos.save
       
-      @eventos.update_column(:img, uploaded_file.original_filename)
+      @eventos.update_column(:img1, params[:img1].original_filename)
+      @eventos.update_column(:img2, params[:img2].original_filename)
+      @eventos.update_column(:img3, params[:img3].original_filename)
   		
   	else
   		render :new
@@ -60,13 +74,12 @@ class CrudEventosController < ApplicationController
     # Pasamos el 'id' del registro a actualizar (método editar)    
     @eventos = Evento.find(params[:id])    
  
-    # Actualizamos el Archivo al servidor
-    uploaded_file = params[:img]
- 
-    if params[:img].present?
+
+    if params[:img1].present?
+      uploaded_file = params[:img1]
  
       # Eliminamos el archivo (imagen) anterior 
-      simg = Evento.where(:id => @eventos).pluck(:img)    
+      simg = Evento.where(:id => @eventos).pluck(:img1)    
       imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
       File.delete(Rails.root + imgeliminar)
  
@@ -74,10 +87,35 @@ class CrudEventosController < ApplicationController
       File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
           file.write(uploaded_file.read)
       end
- 
-    else
-      #
     end  
+
+    if params[:img2].present?
+      uploaded_file = params[:img2]
+ 
+      # Eliminamos el archivo (imagen) anterior 
+      simg = Evento.where(:id => @eventos).pluck(:img2)    
+      imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
+      File.delete(Rails.root + imgeliminar)
+ 
+      # Subimos el nuevo archivo (imagen) 
+      File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+          file.write(uploaded_file.read)
+      end
+    end  
+
+    if params[:img3].present?
+      uploaded_file = params[:img3]
+ 
+      # Eliminamos el archivo (imagen) anterior 
+      simg = Evento.where(:id => @eventos).pluck(:img3)    
+      imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
+      File.delete(Rails.root + imgeliminar)
+ 
+      # Subimos el nuevo archivo (imagen) 
+      File.open(Rails.root.join('public', 'assets/img', uploaded_file.original_filename), 'wb') do |file|
+          file.write(uploaded_file.read)
+      end
+    end 
     
     # Actualizamos un determinado registro en la base de datos
     if @eventos.update(parametros)
@@ -106,8 +144,16 @@ class CrudEventosController < ApplicationController
     # Eliminamos un determinado registro en la base de datos, pasamos el 'id' del registro a eliminar
     @eventos = Evento.find(params[:id])
  
-    # Eliminamos la imagen perteneciente al registro 
-    simg = Evento.where(:id => @eventos).pluck(:img)    
+    # Eliminamos las imagenes pertenecientes al registro 
+    simg = Evento.where(:id => @eventos).pluck(:img1)    
+    imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
+    File.delete(Rails.root + imgeliminar)
+
+    simg = Evento.where(:id => @eventos).pluck(:img2)    
+    imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
+    File.delete(Rails.root + imgeliminar)
+
+    simg = Evento.where(:id => @eventos).pluck(:img3)    
     imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
     File.delete(Rails.root + imgeliminar)
  
@@ -123,7 +169,7 @@ class CrudEventosController < ApplicationController
   # Parámetros o campos que insertamos o actualizamos en la base de datos 
   private
   def parametros
-  	params.permit(:nombre, :descripcion, :img)
+  	params.permit(:nombre, :descripcion, :img1, :img2, :img3)
   end
  
 end

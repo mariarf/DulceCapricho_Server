@@ -49,17 +49,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="img" class="negrita">Selecciona una imagen:</label>
+                            <label for="img1" class="negrita">Selecciona una imagen:</label>
                             <div>
-                                <input class="form-control" type="file" name="img" id="img" required>
+                                <input class="form-control" type="file" name="img1" id="img1" >
                                 <br>
                                 <br> Imagen Actual:
                                 <br>
                                 <br>
-                                <img src="/assets/img/<%= eventos.img %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
+                                <img src="/assets/img/<%= eventos.img1 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
 
                             </div>
                         </div>
+                        
 
                         <button type="submit" class="btn btn-info">Guardar</button>
                         <%= link_to 'Cancelar', url_for(:back), class: "btn btn-warning" %>

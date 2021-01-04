@@ -3,7 +3,9 @@ class CreateEventos < ActiveRecord::Migration[6.0]
     create_table :eventos do |t|
       t.string :nombre
       t.string :descripcion
-      t.string :img
+      t.string :img1
+      t.string :img2
+      t.string :img3
       t.timestamps
     end
   end

@@ -15,7 +15,9 @@ ActiveRecord::Schema.define(version: 2021_01_03_171926) do
   create_table "eventos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
     t.string "descripcion"
-    t.string "img"
+    t.string "img1"
+    t.string "img2"
+    t.string "img3"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

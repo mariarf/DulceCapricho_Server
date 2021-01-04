@@ -33,23 +33,29 @@
             <div class="album py-5 bg-light">
                 <div class="container">
         
+                    <div class="col-md-12" >
+    
+                        <strong>Descripción:</strong>
+                        <%= eventos.descripcion %>
+    
+                        <br><br>
+    
+                        <strong>Creado:</strong>
+                        <%= eventos.created_at.strftime("%d/%m/%Y") %>
+    
+                    </div>
                     <div class="row">
         
                         <div class="col-md-5">
-                            <img src="/assets/img/<%= eventos.img %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
+                            <img src="/assets/img/<%= eventos.img1 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
+                        </div>
+                        <div class="col-md-5">
+                            <img src="/assets/img/<%= eventos.img2 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
+                        </div>
+                        <div class="col-md-5">
+                            <img src="/assets/img/<%= eventos.img3 %>" class="img-fluid" title="<%= eventos.nombre %>" alt="<%= eventos.nombre %>">
                         </div>
         
-                        <div class="col-md-5" align="left">
-        
-                            <strong>Descripción:</strong>
-                            <%= eventos.descripcion %>
-        
-                            <br><br>
-        
-                            <strong>Creado:</strong>
-                            <%= eventos.created_at.strftime("%d/%m/%Y") %>
-        
-                        </div>
         
                     </div>
                 </div>
