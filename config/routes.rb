@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'index' => 'vistas_clientes#index'
   get 'encargos' => 'vistas_clientes#encargos'
   get 'eventos' => 'vistas_clientes#eventos'
-  get 'politica_y_condiciones' => 'vistas_clientes#politica y condiciones'
+  get 'politica_y_condiciones' => 'vistas_clientes#politica_y_condiciones'
   get 'contacto' => 'vistas_clientes#contacto'
   
   #Vistas servidor
