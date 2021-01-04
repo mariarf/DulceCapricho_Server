@@ -1,4 +1,4 @@
-class EventosController < ApplicationController
+class CrudEventosController < ApplicationController
   @root_url = "/eventos/index"
 
   #layout 'aplication'
