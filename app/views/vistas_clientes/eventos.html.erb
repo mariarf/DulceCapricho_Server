@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <%= stylesheet_link_tag 'styles.css' %>
 
     <title>Dulce Capricho</title>
 </head>
@@ -32,12 +32,14 @@
             </ul>
         </div>
     </nav>
+
     <!-- Jumbotron clasico -->
-    <!-- ocupa el largo de la pantalla-->
     <div class="jumbotron">
-        <h1>Dulce Capricho</h1>
-    </div class="row">
-    <section class="text-center"></section>
+        <h1><a href="./index.html"> Dulce Capricho </a></h1>
+    </div>
+
+    <div class="row">
+        <section class="text-center"></section>
     </div>
 
     <!-- Genérico para todas las páginas -->
