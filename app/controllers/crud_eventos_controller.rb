@@ -26,22 +26,22 @@ class CrudEventosController < ApplicationController
     
     # Subimos el Archivo al servidor
     uploaded_file = params[:img1]
-    name1 = Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
-    File.open(Rails.root.join('public', 'assets/img', name1), 'wb') do |file|
+    name1 = 'eventos/'+ Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
+    File.open(Rails.root.join('app', 'assets/images', name1), 'wb') do |file|
         file.write(uploaded_file.read)
     end
 
     # Subimos el Archivo al servidor
     uploaded_file = params[:img2]
-    name2 = Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
-    File.open(Rails.root.join('public', 'assets/img', name2), 'wb') do |file|
+    name2 = 'eventos/'+ Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
+    File.open(Rails.root.join('app', 'assets/images', name2), 'wb') do |file|
         file.write(uploaded_file.read)
     end
 
     # Subimos el Archivo al servidor
     uploaded_file = params[:img3]
-    name3 = Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
-    File.open(Rails.root.join('public', 'assets/img', name3), 'wb') do |file|
+    name3 = 'eventos/'+ Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
+    File.open(Rails.root.join('app', 'assets/images', name3), 'wb') do |file|
         file.write(uploaded_file.read)
     end
   	
@@ -83,12 +83,12 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img1)    
-      imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-      File.delete(Rails.root + imgeliminar)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+      File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen)
-      name1 = Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
-      File.open(Rails.root.join('public', 'assets/img', name1), 'wb') do |file|
+      name1 = 'eventos/'+ Time.now.to_i.to_s + '_1' + uploaded_file.original_filename
+      File.open(Rails.root.join('app', 'assets/images', name1), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end  
@@ -98,12 +98,12 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img2)    
-      imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-      File.delete(Rails.root + imgeliminar)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+      File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
-      name2 = Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
-      File.open(Rails.root.join('public', 'assets/img', name2), 'wb') do |file|
+      name2 = 'eventos/'+ Time.now.to_i.to_s + '_2' + uploaded_file.original_filename
+      File.open(Rails.root.join('app', 'assets/images', name2), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end  
@@ -113,12 +113,12 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img3)    
-      imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-      File.delete(Rails.root + imgeliminar)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+      File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
-      name3 = Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
-      File.open(Rails.root.join('public', 'assets/img', name3), 'wb') do |file|
+      name3 = 'eventos/'+ Time.now.to_i.to_s + '_3' + uploaded_file.original_filename
+      File.open(Rails.root.join('app', 'assets/images', name3), 'wb') do |file|
           file.write(uploaded_file.read)
       end
     end 
@@ -156,16 +156,16 @@ class CrudEventosController < ApplicationController
  
     # Eliminamos las imagenes pertenecientes al registro 
     simg = Evento.where(:id => @eventos).pluck(:img1)    
-    imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-    File.delete(Rails.root + imgeliminar)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+    File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
 
     simg = Evento.where(:id => @eventos).pluck(:img2)    
-    imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-    File.delete(Rails.root + imgeliminar)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+    File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
 
     simg = Evento.where(:id => @eventos).pluck(:img3)    
-    imgeliminar = Rails.root.join('public', 'assets/img', simg.join)
-    File.delete(Rails.root + imgeliminar)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
+    File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
     Evento.where(id: @eventos ).destroy_all    
     
