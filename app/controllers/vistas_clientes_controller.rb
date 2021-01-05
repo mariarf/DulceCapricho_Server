@@ -3,6 +3,7 @@ class VistasClientesController < ApplicationController
   end
 
   def encargos
+    @eventos = Evento.all()
   end
 
   def eventos

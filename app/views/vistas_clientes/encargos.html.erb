@@ -82,12 +82,10 @@
                 <div class="form-group col-lg-6">
                     <label for="celebracion">¿Qué celebras?</label>
                     <select id="celebracion" class="form-control">
-                        <option selected>Bautizo</option>
-                        <option>Primera Comunión</option>
-                        <option>Boda</option>
-                        <option>Baby shower</option>
-                        <option>Cumpleaños</option>
-                        <option>Otra</option>
+                        <% @eventos.each do |evento| %>
+                            <option> <%= evento.nombre %></option>
+                        <%end%>
+                        <option selected>Otra</option>
                     </select>
                 </div>
                 <div class="form-group col-12">
