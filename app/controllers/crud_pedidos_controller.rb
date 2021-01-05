@@ -63,7 +63,7 @@ class CrudPedidosController < ApplicationController
     end
   
       # Redireccionamos a la vista principal con mensaje 
-      @ini = "/postres/index"
+      @ini = "/pedidos/index"
       flash[:notice] = "Actualizado Correctamente !"
       redirect_to @ini 
   
