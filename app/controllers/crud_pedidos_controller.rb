@@ -11,7 +11,7 @@ class CrudPedidosController < ApplicationController
     @password = params[:password]
 
     if @user.eql? "admin"
-      if @password.eql? "admin123"
+      if @password.eql? "!daw-g4"
         redirect_to "/index/admin"
       else
         flash[:error] = "Contraseña incorrecta"
