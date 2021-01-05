@@ -6,6 +6,7 @@ class VistasClientesController < ApplicationController
   end
 
   def eventos
+    @eventos = Evento.all()
   end
 
   def politica_y_condiciones
