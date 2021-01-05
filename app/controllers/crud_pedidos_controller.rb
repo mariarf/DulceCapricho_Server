@@ -50,12 +50,17 @@ class CrudPedidosController < ApplicationController
     if @pedidos.save
   	else
   		render :new
-  	end
-    
-    # Redireccionamos a la vista principal con mensaje 
-    @ini = "/pedidos/index"
-    flash[:notice] = "Creado Correctamente !"
-    redirect_to @ini 
+    end
+
+    # Redireccionamos a la vista principal con mensaje   
+    if params[:datos].eql? "server"
+      @ini = "/pedidos/index"
+      flash[:notice] = "Creado Correctamente !"
+      redirect_to @ini 
+    else
+      flash[:notice] = "Pedido realizado correctamente"
+      redirect_to "/contacto"
+    end
   
   end
   

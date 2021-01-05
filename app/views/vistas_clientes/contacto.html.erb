@@ -14,6 +14,10 @@
 </head>
 
 <body onload="initContacto()">
+    
+    <%=var prueba = initContacto();
+    console.log(prueba);
+    %>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="./index.html">Dulce Capricho</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aira-controls="navbarNavDropdown" aira-expanded="false" aira-label="Toggle navigation">
@@ -46,6 +50,14 @@
                 <p>Puedes llamarnos a nuestro número +000 00 00 00 o enviarnos un whatsapp, nuestro horario es de 9-21 todos los días</p>
             </div>
         </div>
+        <hr />
+
+        <!-- Mensajes -->
+        <% if flash[:notice] %>
+            <div class="alert alert-success" role="alert" id="notice" class="notice">
+                <%= flash[:notice] %>                                    
+            </div>
+        <% end %>
         <hr />
 
         <h1>Realiza un pedido</h1>
@@ -102,9 +114,9 @@
                     <textarea id="tupedido" name="tuPedido" rows="10" class="form-control"></textarea>
                 </div>
             </fieldset>
+            
 
-             <button type="submit" class="btn btn-info">Guardar</button>
-<% end %>
+            <button type="submit" class="btn btn-info">Guardar</button>
         </form>
     </div>
 

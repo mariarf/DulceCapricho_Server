@@ -371,8 +371,8 @@ window.initContacto = function(){
         
         var str = localStorage.getItem("pedidoCompleto");
         $("#tupedido").val(localStorage.getItem("pedidoCompleto"));
-        
         localStorage.clear();
+        return str;
     }
 }
 
