@@ -370,9 +370,11 @@ window.initContacto = function(){
     if(localStorage.pedidoCompleto){
         
         var str = localStorage.getItem("pedidoCompleto");
+        
         $("#tupedido").val(localStorage.getItem("pedidoCompleto"));
+        $("#tupedido1").val(localStorage.getItem("pedidoCompleto"));
         localStorage.clear();
-        return str;
+        
     }
 }
 
