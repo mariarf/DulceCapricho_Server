@@ -60,7 +60,7 @@ pedido2 = Pedido.create(nombre: "Pepe",
            ")
 
 
-pedido2 = Pedido.create(nombre: "Irene", 
+pedido3 = Pedido.create(nombre: "Irene", 
             apellido: "García", 
             email: "irenegarca5@gmail.com", 
             domicilio: "c/ Triana", 
@@ -72,8 +72,8 @@ pedido2 = Pedido.create(nombre: "Irene",
             - Sabor del bizcocho: Chocolate
             - Buttercream: Mango")
 
-pedido3 = Pedido.create(nombre: "Patricia", 
-            apellido= "Sánchez", 
+pedido4 = Pedido.create(nombre: "Patricia", 
+            apellido: "Sánchez", 
             email: "patrisan@gmail.com", 
             domicilio: "c/ Lanzarote", 
             CP:"33120", 
