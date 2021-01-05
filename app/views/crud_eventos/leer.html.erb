@@ -3,26 +3,51 @@
 
 <head>
     <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'styles.css' %>
 
-    <title>Crear</title>
+    <title>Detalles de evento</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aira-controls="navbarNavDropdown" aira-expanded="false" aira-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/login/admin">Iniciar Sesión</a></li>
+                <li class="nav-item "><a class="nav-link" href="/index/admin">Menú</a></li>
+                <li class="nav-item "><a class="nav-link" href="/eventos/index">Eventos</a></li>
+
+            </ul>
+            <a class="navbar-text nav-link nav-item" href="/login/admin">Salir</a>
+        </div>
+    </nav>
+
+    
+    <!-- Jumbotron clasico -->
+    <div class="jumbotron loginJumbotron">
+        <h1> Dulce Capricho </h1>
+    </div>
+
     <div class = "container">
         <br>
         <h1> Detalles del evento</h1>
         <hr>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/eventos/index">Inicio</a></li>
-                <li class="breadcrumb-item"  aria-current="page">Detalles</a></li>
-            </ol>
-        </nav>
-        <hr>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" ><a href="/index/admin">Menú</a></li>
+                    <li class="breadcrumb-item" ><a href="/eventos/index">Eventos</a></li>
+                    <li class="breadcrumb-item active"aria-current="page">Detalles</li>
+                </ol>
+            </nav>
+            <hr>
+
         <% @eventos.each do |eventos| %>
             <section class="text-center">
                 <div class="container">
@@ -57,7 +82,7 @@
                     </div>
                 </div>
             </div>
-        
+            <br>
         <% end %>
     </div>
     <!-- Optional JavaScript; jQuery, Popper.js, and Bootstrap JS-->
