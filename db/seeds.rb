@@ -71,3 +71,15 @@ pedido2 = Pedido.create(nombre: "Irene",
             - Número de personas: 20
             - Sabor del bizcocho: Chocolate
             - Buttercream: Mango")
+
+pedido3 = Pedido.create(nombre: "Patricia", 
+            apellido= "Sánchez", 
+            email: "patrisan@gmail.com", 
+            domicilio: "c/ Lanzarote", 
+            CP:"33120", 
+            fechaEntrega:"20/03/2021", 
+            comentario:"", 
+            tuPedido: "Tartas
+            - Número de personas: 30
+            - Sabor del bizcocho: Galleta
+            - Buttercream: Nata")
