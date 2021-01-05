@@ -83,7 +83,7 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img1)    
-      imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
       File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen)
@@ -98,7 +98,7 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img2)    
-      imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
       File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
@@ -113,7 +113,7 @@ class CrudEventosController < ApplicationController
  
       # Eliminamos el archivo (imagen) anterior 
       simg = Evento.where(:id => @eventos).pluck(:img3)    
-      imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+      imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
       File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
       # Subimos el nuevo archivo (imagen) 
@@ -156,15 +156,15 @@ class CrudEventosController < ApplicationController
  
     # Eliminamos las imagenes pertenecientes al registro 
     simg = Evento.where(:id => @eventos).pluck(:img1)    
-    imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
     File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
 
     simg = Evento.where(:id => @eventos).pluck(:img2)    
-    imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
     File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
 
     simg = Evento.where(:id => @eventos).pluck(:img3)    
-    imgeliminar = Rails.root.join('app', 'assets/images/eventos', simg.join)
+    imgeliminar = Rails.root.join('app', 'assets/images', simg.join)
     File.delete(Rails.root + imgeliminar) if File.exist?(imgeliminar)
  
     Evento.where(id: @eventos ).destroy_all    
