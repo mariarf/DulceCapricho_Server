@@ -5,6 +5,25 @@ class CrudPedidosController < ApplicationController
   # layout 'application'
   
   add_flash_types :notice
+
+  def admin
+    @user = params[:userName]
+    @password = params[:password]
+
+    if @user.eql? "admin"
+      if @password.eql? "admin123"
+        redirect_to "/index/admin"
+      else
+        flash[:error] = "Contraseña incorrecta"
+        redirect_to "/login/admin"
+      end
+ 
+    else
+      flash[:error] = "Usuario incorrecto"
+      redirect_to "/login/admin"
+    end
+
+  end
   
   # Listar todos los registros de la Base de Datos 
   def index
