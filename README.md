@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Version Ruby: 2.6.6
 
-* Ruby version
 
-* System dependencies
+Inicializar la base de datos:(cmd) rake db:create db:migrate 
 
-* Configuration
+Inicializar base de datos con valores del seeding:(cmd) "rails db:seed"
 
-* Database creation
+Inicializar proyecto: (cmd) rails s
 
-* Database initialization
+Si es la primera vez en ejecutar el proyecto, es probable que se tengan que instalar las gemas específicas para el proyecto: (cmd) bundle install
 
-* How to run the test suite
+VISTA CLIENTES: 
 
-* Services (job queues, cache servers, search engines, etc.)
+En el localhost la vista por defecto es la vista para clientes
 
-* Deployment instructions
+VISTA ADMINISTRADORES:
 
-* ...
+Para administradores, en la ruta habrá que poner lo siguiente:
+
+http://localhost:3000/login/admin
+
+Siendo localhost:3000 el puerto en el que el proyecto está ejecutado. Al iniciar sesión con el usuario especificado (usuario: admin // contraseña: !daw-g4) se redireccionará a el menú de administrador para manejar los Eventos y los Pedidos (CRUD).
