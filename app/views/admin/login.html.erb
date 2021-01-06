@@ -44,15 +44,15 @@
             <hr>
         <% end %>
 
-        <form method="POST" action="/pedidos/login" accept-charset="UTF-8" role="form" id="adminpedido" name="adminpedido" enctype="multipart/form-data">
+        <form method="POST" action="../login" accept-charset="UTF-8" role="form" id="adminpedido" name="adminpedido" enctype="multipart/form-data">
 
             <!-- Protección CSRF -->
             <%= token_tag nil %>
 
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="userName">Usuario: </label>
-                    <input type="text" required name="userName" class="form-control" id="userName" placeholder="Ingrese usuario: admin" />
+                    <label for="userName">Email: </label>
+                    <input type="email" required name="email" class="form-control" id="email" placeholder="Ingrese email: admin@admin.com" />
                 </div>
                 <hr>
 
@@ -64,8 +64,6 @@
             <button type="submit" class="btn btn-info">Entrar</button>
 
         </form>
-
-
     </div>
 
     <!-- Optional JavaScript; jQuery, Popper.js, and Bootstrap JS-->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_120525) do
+ActiveRecord::Schema.define(version: 2021_01_06_132750) do
 
   create_table "eventos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_01_05_120525) do
     t.string "tuPedido"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "name"
+    t.text "email", null: false
+    t.text "password_digest", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :hash
   end
 
 end

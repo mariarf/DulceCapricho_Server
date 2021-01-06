@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   #Administración
   get 'login/admin' => 'admin#login'
   get 'index/admin' => 'admin#index_admin'
-  post 'pedidos/login' => 'admin#admin'
+  post 'login' => 'admin#admin'
+  get 'logout' => 'admin#destroy'
   
   #Vistas servidor
   get 'eventos/index' => 'crud_eventos#index' # Ruta de la vista principal de los registros 
