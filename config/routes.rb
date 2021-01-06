@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  
-
   resources :users
   #Vistas cliente
   get '' => 'vistas_clientes#index'
@@ -33,6 +31,8 @@ Rails.application.routes.draw do
   post 'pedidos/insertar' => 'crud_pedidos#insertar'
   post 'pedidos/editar/:id', to: 'crud_pedidos#editar' 
   post 'pedidos/eliminar/:id', to: 'crud_pedidos#eliminar' 
+
+  get 'encargos/index' => 'crud_encargos#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
