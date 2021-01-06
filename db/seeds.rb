@@ -83,3 +83,7 @@ pedido4 = Pedido.create(nombre: "Patricia",
             - Número de personas: 30
             - Sabor del bizcocho: Galleta
             - Buttercream: Nata")
+
+admin = User.new({:name => "Admin", :email => "admin@admin.com", :password => "!daw-g4" })
+admin.hash_password
+admin.save

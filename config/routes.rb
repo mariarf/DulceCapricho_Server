@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
 
+  resources :users
   #Vistas cliente
   get '' => 'vistas_clientes#index'
   get 'index' => 'vistas_clientes#index'
@@ -9,6 +10,12 @@ Rails.application.routes.draw do
   get 'eventos' => 'vistas_clientes#eventos'
   get 'politica_y_condiciones' => 'vistas_clientes#politica_y_condiciones'
   get 'contacto' => 'vistas_clientes#contacto'
+  
+  #Administración
+  get 'login/admin' => 'admin#login'
+  get 'index/admin' => 'admin#index_admin'
+  post 'login' => 'admin#admin'
+  get 'logout' => 'admin#destroy'
   
   #Vistas servidor
   get 'eventos/index' => 'crud_eventos#index' # Ruta de la vista principal de los registros 
@@ -19,10 +26,6 @@ Rails.application.routes.draw do
   post 'eventos/editar/:id', to: 'crud_eventos#editar' # Ruta que procesa la actualización de un registro en la base de datos 
   post 'eventos/eliminar/:id', to: 'crud_eventos#eliminar' # Ruta para eliminar un registro de la base de datos 
 
-  get 'login/admin' => 'crud_pedidos#login'
-  get 'index/admin' => 'crud_pedidos#index_admin'
-  post 'pedidos/login' => 'crud_pedidos#admin'
-
   get 'pedidos/index' => 'crud_pedidos#index'
   get 'pedidos/leer/:id' => 'crud_pedidos#leer'
   get 'pedidos/crear'=> 'crud_pedidos#crear'
@@ -30,5 +33,6 @@ Rails.application.routes.draw do
   post 'pedidos/insertar' => 'crud_pedidos#insertar'
   post 'pedidos/editar/:id', to: 'crud_pedidos#editar' 
   post 'pedidos/eliminar/:id', to: 'crud_pedidos#eliminar' 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

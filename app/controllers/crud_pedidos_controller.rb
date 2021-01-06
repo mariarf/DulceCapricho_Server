@@ -1,30 +1,20 @@
 class CrudPedidosController < ApplicationController
  
+  before_action :require_login
+  def require_login
+    current_user = User.find_by(:id => session[:current_user_id])
+    if !current_user 
+      flash[:error] = "Debe iniciar sesión para acceder a este contenido"
+      redirect_to '/login/admin'
+    end
+  end
+
   @root_url = "/pedidos/index"
   
   # layout 'application'
   
   add_flash_types :notice
 
-  def admin
-    @user = params[:userName]
-    @password = params[:password]
-
-    if @user.eql? "admin"
-      if @password.eql? "!daw-g4"
-        redirect_to "/index/admin"
-      else
-        flash[:error] = "Contraseña incorrecta"
-        redirect_to "/login/admin"
-      end
- 
-    else
-      flash[:error] = "Usuario incorrecto"
-      redirect_to "/login/admin"
-    end
-
-  end
-  
   # Listar todos los registros de la Base de Datos 
   def index
     @pedidos = Pedido.all()
