@@ -1,0 +1,2 @@
+class CrudEncargosController < ApplicationController
+end
