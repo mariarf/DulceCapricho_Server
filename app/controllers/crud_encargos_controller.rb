@@ -40,33 +40,33 @@ class CrudEncargosController < ApplicationController
 
     
     def editar
-        @retu ='encargos/index'
+        @retu ='/encargos/index'
         @editar = params[:nombreInput]
         case @editar
-            when 0 
+            when "0" 
                 @nuevo = Bizcocho.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
             
                 
                 
-            when 1
+            when "1"
                 @nuevo = Buttercream.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
                 
-            when 2
+            when "2"
                 @nuevo = Galletum.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
                 
             
-            when 3
+            when "3"
                 @nuevo = Popcake.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
                 
        
-            when 4
+            when "4"
                 @nuevo = Mesadulce.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
@@ -77,29 +77,29 @@ class CrudEncargosController < ApplicationController
     end
 
     def eliminar
-        @retu ='encargos/index'
+        @retu ='/encargos/index'
         @eliminar = params[:nombreInput]
         case @eliminar
-            when 0 
+            when "0" 
                 @nuevo = Bizcocho.find(params[:id])
                 Pedido.where(id: @nuevo).destroy_all
                 
                 
-            when 1
+            when "1"
                 @nuevo = Buttercream.find(params[:id])
                 Pedido.where(id: @nuevo).destroy_all
                 
-            when 2
+            when "2"
                 @nuevo = Galletum.find(params[:id])
                 Pedido.where(id: @nuevo).destroy_all
                 
             
-            when 3
+            when "3"
                 @nuevo = Popcake.find(params[:id])
                 Pedido.where(id: @nuevo).destroy_all
                 
        
-            when 4
+            when "4"
                 @nuevo = Mesadulce.find(params[:id])
                 Pedido.where(id: @nuevo).destroy_all
                 
