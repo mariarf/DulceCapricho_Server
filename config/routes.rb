@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   post 'pedidos/eliminar/:id', to: 'crud_pedidos#eliminar' 
 
   get 'encargos/index' => 'crud_encargos#index'
-
+  post 'encargos/insertar' => 'crud_encargos#insertar'
+  post 'encargos/editar/:id' => 'crud_encargos#editar'
+  post 'encargos/eliminar/:id' => 'crud_encargos#eliminar'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

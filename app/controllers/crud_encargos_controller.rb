@@ -7,4 +7,13 @@ class CrudEncargosController < ApplicationController
         @mesadulces = Mesadulce.all()
         @listas = [@bizcochos, @buttercreams, @galletas, @popcakes, @mesadulces]
     end
+
+    def insertar
+        
+    end
+
+
+    def editar
+
+    end
 end
