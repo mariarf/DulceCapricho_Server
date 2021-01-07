@@ -80,7 +80,7 @@
             </li>
         </ul>
 
-        <% @lista.each_with_index do |lista, index|%>
+        <% @listas.each_with_index do |lista, index|%>
             <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade" id="encargos<%=index%>" role="tabpanel"
                 aria-labelledby="encargos<%=index%>-tab">
@@ -92,7 +92,8 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+
+                      
                             <% lista.each do |objeto| %>
                                 <tr>
                                     <td class="v-align-middle">
@@ -146,7 +147,7 @@
                                    
                                 </tr>
                             <%end%>
-                        </tbody>
+                        </tbody>  
                     </table>
                     <!--Ver opción de hacer edición en la misma página-->                                        
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Añadir</button>
@@ -161,7 +162,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="/ver-juanma/crear" accept-charset="UTF-8" role="form" id="crear<%=lista%>" name="crear<%=lista%>" enctype="multipart/form-data">
+                                    <form method="POST" action="/encargos/insertar" accept-charset="UTF-8" role="form" id="crear<%=lista%>" name="crear<%=lista%>" enctype="multipart/form-data">
 
                                         <!-- Protección CSRF -->
                                         <%= token_tag nil %> 
@@ -169,6 +170,7 @@
                                         <label for="nombre" class="negrita">Nombre:</label>
                                         <div>
                                             <input type="text" required class="form-control" id="nombre" name="nombre" require/>
+                                            <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" placeholder="" value="<% index %>" require/>
                                         </div>
                                     </form>
                                 </div>
