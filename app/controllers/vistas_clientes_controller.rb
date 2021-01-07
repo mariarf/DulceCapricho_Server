@@ -4,6 +4,12 @@ class VistasClientesController < ApplicationController
 
   def encargos
     @eventos = Evento.all()
+    
+    @bizcochos = Bizcocho.all()
+    @buttercreams = Buttercream.all()
+    @galletas = Galletum.all()
+    @popcakes = Popcake.all()
+    @mesadulces = Mesadulce.all()
   end
 
   def eventos
@@ -15,4 +21,5 @@ class VistasClientesController < ApplicationController
 
   def contacto
   end
+  
 end

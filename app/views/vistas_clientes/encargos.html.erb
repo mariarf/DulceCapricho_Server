@@ -97,62 +97,17 @@
 
                     </p>
                     <ul>
+                        <% @mesadulces.each do |mesadulces| %>
                         <li>
                             <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Macarons</label>
+                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label"><%=mesadulces.nombre%></label>
                                 <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroMacarons" />
+                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numero<%=mesadulces.nombre%>" />
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Alfajores</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroAlfajores" />
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Berlinas</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroBerlinas" />
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Brownies</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroBrownies" />
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Almendrados</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroAlmendrados" />
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Trufas</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroTrufas" />
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group row">
-                                <label for="contenido" class="col-md-2 col-lg-3 col-form-label">Bombones</label>
-                                <div class="col-6 col-sm-3">
-                                    <input type="number" class="form-control" min="0" placeholder="mín. 6" id="numeroBombones" />
-                                </div>
-                            </div>
-                        </li>
+
+                        <%end%>
                     </ul>
 
                 </div>
@@ -195,32 +150,18 @@
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="tarta-bizcocho">Elige el sabor del bizcocho</label>
                     <select id="tarta-bizcocho" class="form-control">
-                        <option selected>Vainilla</option>
-                        <option>Chocolate</option>
-                        <option>Zanahoria</option>
-                        <option>Zanahoria con nueces</option>
-                        <option>Red Velvet</option>
-                        <option>Galleta</option>
-                        <option>Manzana y nueces</option>
+                        <% @bizcochos.each do |bizcochos| %>
+                            <option><%= bizcochos.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="tarta-buttercream">Elige la buttercream</label>
                     <select id="tarta-buttercream" class="form-control">
-                        <option selected>Nata</option>
-                        <option>Vainilla</option>
-                        <option>Vainilla y queso</option>
-                        <option>Chocolate con leche</option>
-                        <option>Chocolate negro</option>
-                        <option>Chocolate blanco</option>
-                        <option>Dulce de leche</option>
-                        <option>Frambuesa</option>
-                        <option>Mango</option>
-                        <option>Menta</option>
-                        <option>Gofio</option>
-                        <option>Nutella</option>
-                        <option>Oreo</option>
-                        <option>Kinder bueno</option>
+                    
+                        <% @buttercreams.each do |buttercreams| %>
+                            <option><%=buttercreams.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-12">
@@ -264,13 +205,9 @@
                 <div class="form-group col-lg-6">
                     <label for="galletas-sabor">Elige el sabor</label>
                     <select id="galletas-sabor" class="form-control">
-                        <option selected>Vainilla</option>
-                        <option>Chocolate</option>
-                        <option>Vainilla con chispas de chocolate</option>
-                        <option>Chocolate con chispas de chocolate</option>
-                        <option>Canela</option>
-                        <option>Jengibre</option>
-                        <option>Mantequilla</option>
+                        <% @galletas.each do |galletas| %>
+                            <option><%=galletas.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-12">
@@ -337,32 +274,17 @@
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="cupcakes-sabor">Elige el sabor del bizcocho</label>
                     <select id="cupcakes-sabor" class="form-control">
-                        <option selected>Vainilla</option>
-                        <option>Chocolate</option>
-                        <option>Zanahoria</option>
-                        <option>Zanahoria con nueces</option>
-                        <option>Red Velvet</option>
-                        <option>Galleta</option>
-                        <option>Manzana y nueces</option>
+                        <% @bizcochos.each do |bizcochos| %>
+                            <option><%= bizcochos.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="cupcakes-buttercream">Elige la buttercream</label>
                     <select id="cupcakes-buttercream" class="form-control">
-                        <option selected>Nata</option>
-                        <option>Vainilla</option>
-                        <option>Vainilla y queso</option>
-                        <option>Chocolate con leche</option>
-                        <option>Chocolate negro</option>
-                        <option>Chocolate blanco</option>
-                        <option>Dulce de leche</option>
-                        <option>Frambuesa</option>
-                        <option>Mango</option>
-                        <option>Menta</option>
-                        <option>Gofio</option>
-                        <option>Nutella</option>
-                        <option>Oreo</option>
-                        <option>Kinder bueno</option>
+                        <% @buttercreams.each do |buttercreams| %>
+                            <option><%=buttercreams.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-12">
@@ -395,11 +317,9 @@
                 <div class="form-group col-md-12 col-lg-6">
                     <label for="popcakes-sabor">Elige el sabor</label>
                     <select id="popcakes-sabor" class="form-control">
-                        <option>Chocolate</option>
-                        <option>Coco</option>
-                        <option>Oreo</option>
-                        <option>Galleta</option>
-                        <option>Todos</option>
+                        <% @popcakes.each do |popcakes| %>
+                            <option><%=popcakes.nombre %></option>
+                        <%end%>
                     </select>
                 </div>
                 <div class="form-group col-12">

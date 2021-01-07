@@ -90,7 +90,7 @@ admin.save
 
 mesaDulce1 = Mesadulce.create(nombre:"Macarons")
 mesaDulce2 = Mesadulce.create(nombre:"Alfajores")
-mesaDulce3 = Mesadulce.create(nombre:"Berlians")
+mesaDulce3 = Mesadulce.create(nombre:"Berlinas")
 mesaDulce4 = Mesadulce.create(nombre:"Brownies")
 mesaDulce5 = Mesadulce.create(nombre:"Almendrados")
 mesaDulce6 = Mesadulce.create(nombre:"Trufas")
