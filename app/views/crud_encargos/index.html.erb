@@ -79,115 +79,118 @@
                    aria-selected="false">Dulces para mesas</a>
             </li>
         </ul>
+        <br>
 
         <% @listas.each_with_index do |lista, index|%>
             <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade" id="encargos<%=index%>" role="tabpanel"
-                aria-labelledby="encargos<%=index%>-tab">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-
-                      
-                            <% lista.each do |objeto| %>
+                <div class="tab-pane fade" id="encargos<%=index%>" role="tabpanel" aria-labelledby="encargos<%=index%>-tab">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
                                 <tr>
-                                    <td class="v-align-middle">
-                                        <%= objeto.nombre %>
-                                    </td>
-                                    <!--Borrar en caso de que funcione bien el modal-->                
-                                        <a href="/ver-juanma/actualizar/<%= lista.id %>" class="btn btn-primary">Editar</a>
+                                    <th>Nombre</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
 
-                                        <!--Ver opción de hacer edición en la misma página-->                                        
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%=lista%>Modal">Editar</button>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="<%=lista%>Modal" tabindex="-1" role="dialog" aria-labelledby="<%=lista%>ModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="<%=lista%>ModalLabel">Editar</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form method="POST" action="/ver-juanma/insertar" accept-charset="UTF-8" role="form" id="editar<%=lista%>" name="editar<%=lista%>" enctype="multipart/form-data">
+                            <tbody>
+                                <% lista.each do |objeto| %>
+                                    <tr>
+                                        <td class="v-align-middle">
+                                            <%= objeto.nombre %>
+                                        </td>
+                                        <td class="v-align-middle">
 
-                                                            <!-- Protección CSRF -->
-                                                            <%= token_tag nil %> 
+                                           <form method="POST" action="/encargos/eliminar/<%=objeto.id%>" accept-charset="UTF-8" class="form-horizontal" role="form" onsubmit="return ConfirmDelete()">
+                                                <!--Opción edición en la misma página-->                                        
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<%=index%>">Editar</button>
+                                            
+                                                <!-- Protección CSRF -->
+                                                <%= token_tag nil %> 
+                    
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                <input type="hidden" class="form-control" id="nombre1" name="nombreInput" value="<%=index %>" require/>
+                                                                
+                        
+                                            </form>
+                                            
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="Modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel<%=index%>" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ModalLabel<%=index%>">Editar</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" action="/encargos/editar/<%=objeto.id%>" accept-charset="UTF-8" role="form" id="editar<%=index%>" name="editar<%=index%>" enctype="multipart/form-data">
 
-                                                            <label for="nombre" class="negrita">Nuevo nombre:</label>
-                                                            <div>
-                                                                <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="<%= objeto.nombre %>" require/>
-                                                                <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" placeholder="<%= objeto.nombre%>" value="<% index %>" require/>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-info">Guardar</button>
+                                                                <!-- Protección CSRF -->
+                                                                <%= token_tag nil %> 
+
+                                                                <label for="nombre" class="negrita">Nuevo nombre:</label>
+                                                                <div>
+                                                                    <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="<%= objeto.nombre %>" require/>
+                                                                    <input type="hidden" class="form-control" id="nombre1" name="nombreInput" value="<%=index %>" require/>
+                                                                </div>
+                                                                <br>
+
+                                                                <button type="submit" class="btn btn-info">Guardar</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            </form>
+                                                        </div>
+                                            
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+ 
+                                        </td>
+                                    
+                                    </tr>
+                                <%end%>
+                            </tbody>  
+                        </table>
+                        <!--Ver opción de hacer edición en la misma página-->                                        
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAñadir<%=index%>">Añadir</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="ModalAñadir<%=index%>" tabindex="-1" role="dialog" aria-labelledby="ModalLabelAñadir<%=index%>" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabelAñadir<%=index%>">Añadir</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="/encargos/insertar" accept-charset="UTF-8" role="form" id="crear<%=lista%>" name="crear<%=lista%>" enctype="multipart/form-data">
 
-                                        <form method="POST" action="/ver-juanma/eliminar/<%= objeto.id %>" accept-charset="UTF-8" class="form-horizontal" role="form" onsubmit="return ConfirmDelete()">
-                    
                                             <!-- Protección CSRF -->
                                             <%= token_tag nil %> 
-                
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                    
+
+                                            <label for="nombre" class="negrita">Nombre:</label>
+                                            <div>
+                                                <input type="text" required class="form-control" id="nombre" name="nombre" require/>
+                                                <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" placeholder="" require value="<%=index%>"/>
+                                            </div>
+                                            <br>
+                                            <button type="submit" class="btn btn-info">Guardar</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                         </form>
-                                    </td>
-                                   
-                                </tr>
-                            <%end%>
-                        </tbody>  
-                    </table>
-                    <!--Ver opción de hacer edición en la misma página-->                                        
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Añadir</button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="<%=lista%>ModalAñadir" tabindex="-1" role="dialog" aria-labelledby="<%=lista%>ModalLabelAñadir" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="<%=lista%>ModalLabelAñadir">Añadir</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="POST" action="/encargos/insertar" accept-charset="UTF-8" role="form" id="crear<%=lista%>" name="crear<%=lista%>" enctype="multipart/form-data">
-
-                                        <!-- Protección CSRF -->
-                                        <%= token_tag nil %> 
-
-                                        <label for="nombre" class="negrita">Nombre:</label>
-                                        <div>
-                                            <input type="text" required class="form-control" id="nombre" name="nombre" require/>
-                                            <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" placeholder="" value="<% index %>" require/>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-info">Guardar</button>
+                                    </div>                 
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <br>
-                    <br>
-                    
+                        <br>
+                        <br>
+                        
+                    </div>
                 </div>
+            
             </div>
-        </div>
         <%end%>
     </div>
 

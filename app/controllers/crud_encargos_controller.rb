@@ -46,32 +46,25 @@ class CrudEncargosController < ApplicationController
             when "0" 
                 @nuevo = Bizcocho.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
-            
-                
                 
             when "1"
                 @nuevo = Buttercream.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
-                
             when "2"
                 @nuevo = Galletum.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
-                
-                
-            
+                   
             when "3"
                 @nuevo = Popcake.find(params[:id])
-                @nuevo.update(params.permit(:nombre))
-                
-                
-       
+                @nuevo.update(params.permit(:nombre)) 
+
             when "4"
                 @nuevo = Mesadulce.find(params[:id])
                 @nuevo.update(params.permit(:nombre))
                 
             end
-
+            
             flash[:notice] = "Actualizado correctamente!"
             redirect_to @retu
     end
@@ -82,26 +75,26 @@ class CrudEncargosController < ApplicationController
         case @eliminar
             when "0" 
                 @nuevo = Bizcocho.find(params[:id])
-                Pedido.where(id: @nuevo).destroy_all
+                Bizcocho.where(id: @nuevo).destroy_all
                 
                 
             when "1"
                 @nuevo = Buttercream.find(params[:id])
-                Pedido.where(id: @nuevo).destroy_all
+                Buttercream.where(id: @nuevo).destroy_all
                 
             when "2"
                 @nuevo = Galletum.find(params[:id])
-                Pedido.where(id: @nuevo).destroy_all
+                Galletum.where(id: @nuevo).destroy_all
                 
             
             when "3"
                 @nuevo = Popcake.find(params[:id])
-                Pedido.where(id: @nuevo).destroy_all
+                Popcake.where(id: @nuevo).destroy_all
                 
        
             when "4"
                 @nuevo = Mesadulce.find(params[:id])
-                Pedido.where(id: @nuevo).destroy_all
+                Mesadulce.where(id: @nuevo).destroy_all
                 
     end
         flash[:notice] = "Eliminado correctamente!"
