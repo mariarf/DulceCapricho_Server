@@ -1,4 +1,6 @@
 class VistasClientesController < ApplicationController
+
+ 
   def index
   end
 
