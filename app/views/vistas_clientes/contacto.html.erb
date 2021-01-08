@@ -61,7 +61,7 @@
 
         <h1>Realiza un pedido</h1>
 
-        <form method="POST" action="/pedidos/insertar" accept-charset="UTF-8" role="form" id="crearpedido" name="crearpedido" enctype="multipart/form-data">
+        <form method="POST" action="/insertar" accept-charset="UTF-8" role="form" id="crearpedido" name="crearpedido" enctype="multipart/form-data">
             
             <!-- Protección CSRF -->
             <%= token_tag nil %>
@@ -115,11 +115,8 @@
             </fieldset>  
 
             <input id="tupedido" type="hidden" name="tuPedido" rows="10" class="form-control"> 
-            <input type="hidden" class="form-control" id="datos" name="datos" value="client"/>
-                
+             
             
-            
-
             <button type="submit" class="btn btn-info">Guardar</button>
         </form>
     </div>

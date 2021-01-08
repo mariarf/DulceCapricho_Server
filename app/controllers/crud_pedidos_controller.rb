@@ -35,20 +35,12 @@ class CrudPedidosController < ApplicationController
   def insertar
   
     # Subimos el Archivo al servidor
-    
     @pedidos = Pedido.new(parametros)
     @pedidos.save
 
-
     # Redireccionamos a la vista principal con mensaje  
-    if params[:datos].eql? "client"
-      flash[:notice] = "Pedido realizado correctamente"
-      redirect_to "/contacto"
-    end 
-    if params[:datos].eql? "server"
-      flash[:notice] = "Creado Correctamente !"
-      redirect_to "/pedidos/index"
-    end
+    flash[:notice] = "Creado Correctamente !"
+    redirect_to "/pedidos/index"
   
   end
   

@@ -7,8 +7,8 @@ class CreatePedidos < ActiveRecord::Migration[6.0]
       t.string :domicilio
       t.integer :CP
       t.string :fechaEntrega
-      t.string :comentario
-      t.string :tuPedido
+      t.text :comentario
+      t.text :tuPedido
       t.timestamps
     end
   end

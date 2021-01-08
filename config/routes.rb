@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'eventos' => 'vistas_clientes#eventos'
   get 'politica_y_condiciones' => 'vistas_clientes#politica_y_condiciones'
   get 'contacto' => 'vistas_clientes#contacto'
+  post 'insertar' => 'vistas_clientes#insertar'
   
   #Administración
   get 'login/admin' => 'admin#login'
