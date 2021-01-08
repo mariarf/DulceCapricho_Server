@@ -3,8 +3,10 @@
 
 Version Ruby: 2.6.6
 
+En el archivo database.yml dentro de la carpeta de "config" se debe especificar el username y la contraseña, además del host y el puerto en el que estará alojada la base de datos para que se pueda conectar.
 
-Inicializar la base de datos:(cmd) rake db:create db:migrate 
+
+Inicializar la base de datos:(cmd) rails db:create db:migrate 
 
 Inicializar base de datos con valores del seeding:(cmd) "rails db:seed"
 
@@ -18,8 +20,15 @@ En el localhost la vista por defecto es la vista para clientes
 
 VISTA ADMINISTRADORES:
 
-Para administradores, en la ruta habrá que poner lo siguiente:
+En la página inicial en la vista de clientes hay un botón con una llave en el menú superior. Para acceder a la vista de administrador, se deberá hacer click en el botón y rellenar con los siguientes valores para iniciar sesión:
 
-http://localhost:3000/login/admin
+email: admin@admin.com
+contraseña: !daw-g4
 
-Siendo localhost:3000 el puerto en el que el proyecto está ejecutado. Al iniciar sesión con el usuario especificado (usuario: admin // contraseña: !daw-g4) se redireccionará a el menú de administrador para manejar los Eventos y los Pedidos (CRUD).
+Una vez hecho el log-in saldrá el menú con los 3 CRUD - eventos,pedidos y encargos, se podrá entrar desde el menú, o en su defecto, con sus URL:
+
+Eventos: http://localhost:3000/eventos/index
+Pedidos: http://localhost:3000/pedidos/index
+Encargos: http://localhost:3000/encargos/index
+
+Si se intenta entrar a los enlaces del CRUD sin haber realizado anteriormente el inicio de sesión, saldrá un error y direccionamiento a la página de log in .  
