@@ -55,8 +55,9 @@
             <div class="alert alert-success" role="alert" id="notice" class="notice">
                 <%= flash[:notice] %>                                    
             </div>
+            <hr />
         <% end %>
-        <hr />
+
 
         <h1>Realiza un pedido</h1>
 
@@ -114,6 +115,7 @@
             </fieldset>  
 
             <input id="tupedido" type="hidden" name="tuPedido" rows="10" class="form-control"> 
+            <input type="hidden" class="form-control" id="datos" name="datos" value="client"/>
                 
             
             

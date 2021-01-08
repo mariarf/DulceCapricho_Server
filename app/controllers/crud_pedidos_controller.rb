@@ -37,19 +37,17 @@ class CrudPedidosController < ApplicationController
     # Subimos el Archivo al servidor
     
     @pedidos = Pedido.new(parametros)
-    if @pedidos.save
-  	else
-  		render :new
-    end
+    @pedidos.save
 
-    # Redireccionamos a la vista principal con mensaje   
-    if params[:datos].eql? "server"
-      @ini = "/pedidos/index"
-      flash[:notice] = "Creado Correctamente !"
-      redirect_to @ini 
-    else
+
+    # Redireccionamos a la vista principal con mensaje  
+    if params[:datos].eql? "client"
       flash[:notice] = "Pedido realizado correctamente"
       redirect_to "/contacto"
+    end 
+    if params[:datos].eql? "server"
+      flash[:notice] = "Creado Correctamente !"
+      redirect_to "/pedidos/index"
     end
   
   end

@@ -54,14 +54,14 @@
         <ul class="nav nav-pills" id="myTab" role="tablist">
 
             <li class="nav-item">
-                <a class="nav-link active" id="engargos0-tab" data-toggle="tab"
+                <a class="nav-link" id="engargos0-tab" data-toggle="tab"
                    href="#encargos0" role="tab" aria-controls="encargos0"
-                   aria-selected="true">Bizcochos</a>
+                   aria-selected="false">Bizcochos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="engargos1-tab" data-toggle="tab"
                    href="#encargos1" role="tab" aria-controls="encargos1"
-                   aria-selected="true">Buttercream</a>
+                   aria-selected="false">Buttercream</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="engargos2-tab" data-toggle="tab"
@@ -81,9 +81,9 @@
         </ul>
         <br>
 
-        <% @listas.each_with_index do |lista, index|%>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade" id="encargos<%=index%>" role="tabpanel" aria-labelledby="encargos<%=index%>-tab">
+        <div class="tab-content" id="myTabContent">
+            <% @listas.each_with_index do |lista, index|%>
+                <div class="tab-pane fade show" id="encargos<%=index%>" role="tabpanel" aria-labelledby="encargos<%=index%>-tab">
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -103,7 +103,7 @@
 
                                            <form method="POST" action="/encargos/eliminar/<%=objeto.id%>" accept-charset="UTF-8" class="form-horizontal" role="form" onsubmit="return ConfirmDelete()">
                                                 <!--Opción edición en la misma página-->                                        
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<%=index%>">Editar</button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<%=index%><%=objeto.id%>">Editar</button>
                                             
                                                 <!-- Protección CSRF -->
                                                 <%= token_tag nil %> 
@@ -115,17 +115,17 @@
                                             </form>
                                             
                                             <!-- Modal -->
-                                            <div class="modal fade" id="Modal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel<%=index%>" aria-hidden="true">
+                                            <div class="modal fade" id="Modal<%=index%><%=objeto.id%>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel<%=index%><%=objeto.id%>" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="ModalLabel<%=index%>">Editar</h5>
+                                                            <h5 class="modal-title" id="ModalLabel<%=index%><%=objeto.id%>">Editar</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="POST" action="/encargos/editar/<%=objeto.id%>" accept-charset="UTF-8" role="form" id="editar<%=index%>" name="editar<%=index%>" enctype="multipart/form-data">
+                                                            <form method="POST" action="/encargos/editar/<%=objeto.id%>" accept-charset="UTF-8" role="form" id="editar<%=index%><%=objeto.id%>" name="editar<%=index%><%=objeto.id%>" enctype="multipart/form-data">
 
                                                                 <!-- Protección CSRF -->
                                                                 <%= token_tag nil %> 
@@ -145,14 +145,13 @@
                                                     </div>
                                                 </div>
                                             </div>
- 
-                                        </td>
-                                    
+                                        </td> 
                                     </tr>
                                 <%end%>
                             </tbody>  
                         </table>
-                        <!--Ver opción de hacer edición en la misma página-->                                        
+
+                        <!--Opción de añadir item en la misma página-->                                        
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAñadir<%=index%>">Añadir</button>
                         <!-- Modal -->
                         <div class="modal fade" id="ModalAñadir<%=index%>" tabindex="-1" role="dialog" aria-labelledby="ModalLabelAñadir<%=index%>" aria-hidden="true">
@@ -173,7 +172,7 @@
                                             <label for="nombre" class="negrita">Nombre:</label>
                                             <div>
                                                 <input type="text" required class="form-control" id="nombre" name="nombre" require/>
-                                                <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" placeholder="" require value="<%=index%>"/>
+                                                <input type="hidden" required class="form-control" id="nombre1" name="nombreInput" require value="<%=index%>"/>
                                             </div>
                                             <br>
                                             <button type="submit" class="btn btn-info">Guardar</button>
@@ -189,9 +188,8 @@
                         
                     </div>
                 </div>
-            
-            </div>
-        <%end%>
+            <%end%>
+        </div>
     </div>
 
 
