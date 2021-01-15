@@ -5,13 +5,13 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: db/database_development
   adapter: mysql2     # Motor MySQL
   encoding: utf8      # Codificación
   database: productos # Nombre de la Base de Datos
@@ -26,8 +26,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: db/database_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: sb/database_production
