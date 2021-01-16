@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :users
   #Vistas cliente
-  get '' => 'vistas_clientes#index'
+  get '/' => 'vistas_clientes#index'
   get 'index' => 'vistas_clientes#index'
   get 'encargos' => 'vistas_clientes#encargos'
   get 'eventos' => 'vistas_clientes#eventos'
