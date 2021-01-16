@@ -30,4 +30,4 @@ test:
 
 production:
   <<: *default
-  database: sb/database_production
+  database: db/database_production
